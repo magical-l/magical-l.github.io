@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html>
-  {% include head.html %}
-  <body>
-    <div class="page-content">
-      {{ content }}
-      <div class="copyright">
-        <p>&copy; {{ site.time | date: '%Y' }} <a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}"><strong>{{ site.title }}</strong></a> ― Powered by <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://github.com/heiswayi/textlog">Textlog theme</a></p>
-      </div>
-    </div>
-    {% include google_analytics.html %}
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% if page.title %}{{ " - " | prepend: page.title }}{% endif %}{{ site.title }}</title>
+		<meta name="description" content="{{ site.description }}">
+		<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | prepend: site.url }}">
+		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+		<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+	</head>
+	<body>
+		<main class="page-content">
+			<header>
+				<section class="site-header">
+					<h1 class="smallcap"><a class="site-title" href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">{{ site.title }}</a></h1>
+					<nav>
+						<p class="site-nav"><a href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}">About</a> / <a href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">RSS</a></p>
+					</nav>
+				</section>
+			</header>
+			<article>
+				{{ content }}
+			</article>
+			<aside>
+				这里是侧栏
+				<section>
+					<ul class="post-list">
+						{% for post in site.posts %}
+						<li>
+							<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+						</li>
+						{% endfor %}
+					</ul>
+				</section>
+			</aside>
+			<footer>
+				<div class="copyright">
+					<p>&copy; {{ site.time | date: '%Y' }}
+						<a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}"><strong>{{ site.title }}</strong></a>
+						― Powered by <a href="https://jekyllrb.com/">Jekyll</a>
+						and <a href="https://github.com/heiswayi/textlog">Textlog theme</a>
+					</p>
+				</div>
+			</footer>
+		</main>
+		{% include google_analytics.html %}
+	</body>
 </html>
