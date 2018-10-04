@@ -9,18 +9,54 @@
 		<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | prepend: site.url }}">
 		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 		<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+<!--
+		<link rel="stylesheet" id="wp-postratings-css" href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.85" type="text/css" media="all">
+		<link rel="stylesheet" id="wp-pagenavi-css" href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" type="text/css" media="all">
+-->
+
+		<link rel="stylesheet" id="bootstrap-css" href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=4.9.8" type="text/css" media="all">
+		<link rel="stylesheet" id="nisarg-style-css" href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=4.9.8" type="text/css" media="all">
+
+<!--
+		<link rel="stylesheet" id="font-awesome-css" href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=4.9.8" type="text/css" media="all">
+		<link rel="stylesheet" id="nisarggooglefonts-css" href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" type="text/css" media="all">
+		<link href="https://coolshell.cn/wp-content/plugins/google-syntax-highlighter/Styles/SyntaxHighlighter.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4">
+-->
+		<style type="text/css">
+        .site-header { background: #1d2b2d; }
+</style>
+<!--
+		<style type="text/css" id="syntaxhighlighteranchor"></style>
+		<link id="1538643686156633" href="chrome-extension://emjphcoeoofohgimppddgblomjbojnnh/css/happyReaderPet.css" rel="stylesheet" type="text/css">
+-->
+		<style>
+		</style>
 	</head>
-	<body>
-		<main class="page-content">
-			<header>
-				<section class="site-header">
-					<h1 class="smallcap"><a class="site-title" href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">{{ site.title }}</a></h1>
-					<nav>
-						<p class="site-nav"><a href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}">About</a> / <a href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">RSS</a></p>
-					</nav>
-				</section>
+	<body class="post-template-default single single-post postid-17757 single-format-standard group-blog">
+		<main id="page" role="main" class="page-content hfeed site">
+			<header id="masthead" role="banner">
+				<nav role="navigation" class="navbar navbar-default navbar-fixed-top navbar-left">
+					<div id="navigation_menu" class="container">
+						<div class="navbar-header">
+							<a id="brand" class="navbar-brand"><img src="logo.png"/>{{网站名}}</a>
+						</div>
+						<div collapse navbar-collapse navbar-ex1-collapse>
+							<ul class="nav navbar-nav">
+								<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home active">
+									<a href="{{ '/about' | prepend: site.baseurl | prepend: site.url }}">关于</a>
+								</li>
+								<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home active">
+									<a href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">RSS</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
 			</header>
-			<article>
+			<article role="article" class="site-content">
+				<h1 class="smallcap"><a class="site-title" href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">{{ site.title }}</a></h1>
 				{{ content }}
 			</article>
 			<aside>
@@ -35,12 +71,10 @@
 					</ul>
 				</section>
 			</aside>
-			<footer>
+			<footer id="colophon" role="contentinfo" class="site-footer">
 				<div class="copyright">
 					<p>&copy; {{ site.time | date: '%Y' }}
-						<a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}"><strong>{{ site.title }}</strong></a>
-						― Powered by <a href="https://jekyllrb.com/">Jekyll</a>
-						and <a href="https://github.com/heiswayi/textlog">Textlog theme</a>
+						<a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">{{ site.title }}</a>
 					</p>
 				</div>
 			</footer>
